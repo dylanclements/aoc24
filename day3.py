@@ -1,7 +1,17 @@
 import re
 
+def part1():
+    with open('day3.txt', 'r') as fp:
+        program: str = fp.read()
+    pattern = r'mul\(([0-9]+),([0-9]+)\)'
+    sum = 0
+    for a, b in re.findall(pattern, program):
+        sum += int(a) * int(b)
+    print(sum)
 
-if __name__ == "__main__":
+
+
+def part2():
     with open('day3.txt', 'r') as fp:
         program: str = fp.read()
     # print(program)
@@ -22,3 +32,7 @@ if __name__ == "__main__":
             is_multiply_enabled = instruction == 'do()'
 
     print(sum)
+
+
+if __name__ == "__main__":
+    part1()
